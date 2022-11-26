@@ -1,0 +1,34 @@
+html {
+    &::-webkit-scrollbar {
+        width: 20px;
+        transition: 1s;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background: hsl(0, 0%, 20%);
+        border-radius: 100vw;
+        border: .35em solid white;
+    }
+
+}
+
+body {
+    font-family: 'open sans';
+    padding: 20px 40px;
+    overflow: overlay;
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.titles,
+.input {
+    text-align: center;
+}
