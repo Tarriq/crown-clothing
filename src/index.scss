@@ -1,6 +1,5 @@
 ::-webkit-scrollbar {
     width: 20px;
-    transition: 1s;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -13,8 +12,6 @@ body {
     font-family: 'open sans';
     padding: 20px 40px;
     overflow: overlay;
-    width: 100%;
-    margin: 0;
 
     @media screen and (max-width: 500px) {
         padding: 0;
