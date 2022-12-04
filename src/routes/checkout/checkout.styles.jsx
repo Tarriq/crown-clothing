@@ -35,3 +35,6 @@ export const Total = styled.span`
     content: 'Total: $';
   }
 `
+export const EmptyMessage = styled.span`
+  margin-top: 50px;
+`

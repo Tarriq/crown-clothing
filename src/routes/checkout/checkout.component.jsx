@@ -5,7 +5,8 @@ import {
   CheckoutContainer, 
   CheckoutHeader, 
   HeaderBlock,
-  Total
+  Total,
+  EmptyMessage
 } from './checkout.styles'
 
 
@@ -34,7 +35,7 @@ const Checkout = () => {
         {cartItems.length ? (
           cartItems.map(cartItem => <CheckoutItem key={cartItem.id} cartItem={cartItem} />)
         ) : (
-          <span>No items were selected</span>
+          <EmptyMessage>No items were selected</EmptyMessage>
         )
         }
         <Total>{cartTotal}</Total>
