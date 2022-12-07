@@ -1,5 +1,4 @@
-import styled from 'styled-components'
-
+import styled from "styled-components";
 
 export const DirectoryContainer = styled.div`
   width: 100%;
@@ -7,4 +6,4 @@ export const DirectoryContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0;
-`
+`;

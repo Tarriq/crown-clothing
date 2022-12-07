@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 import {
   BaseButton,
   GoogleSignInButton,
-  InvertedButton
-} from '../button/button.styles'
+  InvertedButton,
+} from "../button/button.styles";
 
 export const CartDropdownContainer = styled.div`
   position: absolute;
@@ -24,12 +24,12 @@ export const CartDropdownContainer = styled.div`
   ${InvertedButton} {
     margin-top: auto;
   }
-`
+`;
 
 export const EmptyMessage = styled.span`
   font-size: 18px;
   margin: 50px auto;
-`
+`;
 
 export const CartItems = styled.div`
   height: 240px;
@@ -42,12 +42,10 @@ export const CartItems = styled.div`
 
     &::-webkit-scrollbar {
       width: 10px;
-    } 
+    }
     &::-webkit-scrollbar-thumb {
       background: #666;
       border-radius: 20px;
     }
   }
-`
-
-
+`;

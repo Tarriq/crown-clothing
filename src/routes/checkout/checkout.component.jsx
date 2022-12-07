@@ -1,17 +1,20 @@
-import { useContext } from "react"
-import CheckoutItem from "../../components/checkout-item/checkout-item.component"
-import { CartContext } from "../../contexts/cart.context"
-import { 
-  CheckoutContainer, 
-  CheckoutHeader, 
+import { useSelector } from 'react-redux';
+import {
+  selectCartItems,
+  selectCartTotal,
+} from '../../store/cart/cart.selector';
+import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import {
+  CheckoutContainer,
+  CheckoutHeader,
   HeaderBlock,
   Total,
-  EmptyMessage
-} from './checkout.styles'
-
+  EmptyMessage,
+} from './checkout.styles';
 
 const Checkout = () => {
-  const { cartItems, cartTotal } = useContext(CartContext)
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
 
   return (
     <CheckoutContainer>
@@ -32,16 +35,16 @@ const Checkout = () => {
           <span>Remove</span>
         </HeaderBlock>
       </CheckoutHeader>
-        {cartItems.length ? (
-          cartItems.map(cartItem => <CheckoutItem key={cartItem.id} cartItem={cartItem} />)
-        ) : (
-          <EmptyMessage>No items were selected</EmptyMessage>
-        )
-        }
-        <Total>{cartTotal}</Total>
+      {cartItems.length ? (
+        cartItems.map(cartItem => (
+          <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+        ))
+      ) : (
+        <EmptyMessage>No items were selected</EmptyMessage>
+      )}
+      <Total>{cartTotal}</Total>
     </CheckoutContainer>
-  )
+  );
+};
 
-}
-
-export default Checkout
+export default Checkout;

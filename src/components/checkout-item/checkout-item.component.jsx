@@ -1,44 +1,45 @@
-import { useContext } from 'react'
-import { CartContext } from '../../contexts/cart.context'
-import { 
-  CheckoutItemContainer, 
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCartItems } from '../../store/cart/cart.selector';
+import {
+  addItemToCart,
+  removeItemFromCart,
+  clearItemFromCart,
+} from '../../store/cart/cart.action';
+import {
+  CheckoutItemContainer,
   ImageContainer,
   Quantity,
-  RemoveButton
-} from './checkout-item.styles'
+  RemoveButton,
+} from './checkout-item.styles';
 
 const CheckoutItem = ({ cartItem }) => {
-  const { name, imageUrl, price, quantity } = cartItem
-  const { 
-    clearItemFromCart, 
-    addItemToCart, 
-    removeItemFromCart
-  } = useContext(CartContext)
+  const { name, imageUrl, price, quantity } = cartItem;
+  const cartItems = useSelector(selectCartItems);
+  const dispatch = useDispatch();
 
-  const clearItemHandler = () => clearItemFromCart(cartItem)
-  const addItemHandler = () => addItemToCart(cartItem)
-  const removeItemHandler = () => removeItemFromCart(cartItem)
+  const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem));
+  const removeItemHandler = () => dispatch(removeItemFromCart(cartItems, cartItem));
+  const clearItemHandler = () => dispatch(clearItemFromCart(cartItems, cartItem));
 
   return (
     <CheckoutItemContainer>
       <ImageContainer>
         <img src={imageUrl} alt={name} />
       </ImageContainer>
-      <span className='name'>{name}</span>
+      <span className="name">{name}</span>
       <Quantity>
-        <div className='arrow' onClick={removeItemHandler}>
+        <div className="arrow" onClick={removeItemHandler}>
           &#10094;
         </div>
-        <span className='value'>{quantity}</span>
-        <div className='arrow' onClick={addItemHandler}>
-        &#10095;
+        <span className="value">{quantity}</span>
+        <div className="arrow" onClick={addItemHandler}>
+          &#10095;
         </div>
       </Quantity>
-      <span className='price'>{price}</span>
-      <RemoveButton onClick={clearItemHandler} >&#10005;</RemoveButton>
+      <span className="price">{price}</span>
+      <RemoveButton onClick={clearItemHandler}>&#10005;</RemoveButton>
     </CheckoutItemContainer>
-  )
-}
+  );
+};
 
-
-export default CheckoutItem
+export default CheckoutItem;

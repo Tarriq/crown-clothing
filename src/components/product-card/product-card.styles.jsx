@@ -1,5 +1,4 @@
-import styled from 'styled-components'
-
+import styled from "styled-components";
 
 export const ProductCardCoantainer = styled.div`
   width: 100%;
@@ -21,18 +20,18 @@ export const ProductCardCoantainer = styled.div`
     top: 255px;
     display: none;
   }
-  
+
   &:hover {
     img {
       opacity: 0.8;
     }
-  
+
     button {
       opacity: 0.85;
       display: flex;
     }
   }
-`
+`;
 
 export const Footer = styled.div`
   width: 100%;
@@ -49,5 +48,4 @@ export const Footer = styled.div`
   .price {
     width: 10%;
   }
-`
-
+`;
