@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   signInWithPopup,
@@ -7,7 +7,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-} from "firebase/auth";
+} from 'firebase/auth';
 import {
   getFirestore,
   doc,
@@ -17,15 +17,15 @@ import {
   writeBatch,
   query,
   getDocs,
-} from "firebase/firestore";
+} from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAs0wxS5AB58viLF82h_1bXPCyS1VZ4vwY",
-  authDomain: "crown-clothing-db-7d529.firebaseapp.com",
-  projectId: "crown-clothing-db-7d529",
-  storageBucket: "crown-clothing-db-7d529.appspot.com",
-  messagingSenderId: "108053005761",
-  appId: "1:108053005761:web:8e2c4a6322b1986332db40",
+  apiKey: 'AIzaSyAs0wxS5AB58viLF82h_1bXPCyS1VZ4vwY',
+  authDomain: 'crown-clothing-db-7d529.firebaseapp.com',
+  projectId: 'crown-clothing-db-7d529',
+  storageBucket: 'crown-clothing-db-7d529.appspot.com',
+  messagingSenderId: '108053005761',
+  appId: '1:108053005761:web:8e2c4a6322b1986332db40',
 };
 
 // Initialize Firebase
@@ -34,7 +34,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const googleProvider = new GoogleAuthProvider();
 
 googleProvider.setCustomParameters({
-  prompt: "select_account",
+  prompt: 'select_account',
 });
 
 export const auth = getAuth();
@@ -51,20 +51,20 @@ export const addCollectionAndDocuments = async (
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
 
-  objectsToAdd.forEach((object) => {
+  objectsToAdd.forEach(object => {
     const docRef = doc(collectionRef, object.title.toLowerCase());
     batch.set(docRef, object);
   });
 
   await batch.commit();
-  console.log("done");
+  console.log('done');
 };
 
 export const getCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, "categories");
+  const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
   const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+  return querySnapshot.docs.map(docSnapshot => docSnapshot.data());
 };
 
 export const createUserDocumentFromAuth = async (
@@ -73,7 +73,7 @@ export const createUserDocumentFromAuth = async (
 ) => {
   if (!userAuth) return;
 
-  const userDocRef = doc(db, "users", userAuth.uid);
+  const userDocRef = doc(db, 'users', userAuth.uid);
 
   const userSnapshot = await getDoc(userDocRef);
 
@@ -89,7 +89,7 @@ export const createUserDocumentFromAuth = async (
         ...additionalInformation,
       });
     } catch (error) {
-      console.log("error creating the user", error.message);
+      console.log('error creating the user', error.message);
     }
   }
 
@@ -110,5 +110,5 @@ export const SignInAuthUserWithEmailAndPassword = async (email, password) => {
 
 export const signOutUser = async () => await signOut(auth);
 
-export const onAuthStateChangedListener = (callback) =>
+export const onAuthStateChangedListener = callback =>
   onAuthStateChanged(auth, callback);

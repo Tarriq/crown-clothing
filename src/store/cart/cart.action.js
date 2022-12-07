@@ -1,5 +1,5 @@
-import { CART_ACTION_TYPES } from "./cart.types";
-import { createAction } from "../../utils/reducer/reducer.utils";
+import { CART_ACTION_TYPES } from './cart.types';
+import { createAction } from '../../utils/reducer/reducer.utils';
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
@@ -37,8 +37,8 @@ const clearCartItem = (cartItems, cartItemToClear) => {
   return cartItems.filter(cartItem => cartItem.id !== cartItemToClear.id);
 };
 
-export const setIsCartOpen = bool => 
-  createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, bool)
+export const setIsCartOpen = bool =>
+  createAction(CART_ACTION_TYPES.SET_IS_CART_OPEN, bool);
 
 export const addItemToCart = (cartItems, productToAdd) => {
   const newCartItems = addCartItem(cartItems, productToAdd);

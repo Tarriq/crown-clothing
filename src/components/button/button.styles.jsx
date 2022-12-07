@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const BaseButton = styled.button`
   min-width: 165px;
@@ -10,7 +10,7 @@ export const BaseButton = styled.button`
   background-color: black;
   color: white;
   text-transform: uppercase;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   border: 1px solid black;
   cursor: pointer;
   display: flex;

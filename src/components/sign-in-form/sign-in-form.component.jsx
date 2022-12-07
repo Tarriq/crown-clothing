@@ -1,15 +1,15 @@
-import { useState } from "react";
-import FormInput from "../form-input/form-input.component";
-import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
+import { useState } from 'react';
+import FormInput from '../form-input/form-input.component';
+import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import {
   signInWithGooglePopup,
   SignInAuthUserWithEmailAndPassword,
-} from "../../utils/firebase/firebase.utils";
-import { SignInContainer, ButtonsContainer } from "./sign-in-form.styles";
+} from '../../utils/firebase/firebase.utils';
+import { SignInContainer, ButtonsContainer } from './sign-in-form.styles';
 
 const defaultFormFields = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
 const SignInForm = () => {
@@ -34,12 +34,12 @@ const SignInForm = () => {
       resetFormFields();
     } catch (error) {
       switch (error.code) {
-        case "auth/wrong-password":
-          alert("Incorrect password for email");
+        case 'auth/wrong-password':
+          alert('Incorrect password for email');
           break;
 
-        case "auth/user-not-found":
-          alert("No user associated with this email");
+        case 'auth/user-not-found':
+          alert('No user associated with this email');
           break;
 
         default:
@@ -60,20 +60,20 @@ const SignInForm = () => {
         <FormInput
           label="Email"
           inputOptions={{
-            type: "email",
+            type: 'email',
             required: true,
             onChange: handleChange,
-            name: "email",
+            name: 'email',
             value: email,
           }}
         />
         <FormInput
           label="Password"
           inputOptions={{
-            type: "password",
+            type: 'password',
             required: true,
             onChange: handleChange,
-            name: "password",
+            name: 'password',
             value: password,
           }}
         />

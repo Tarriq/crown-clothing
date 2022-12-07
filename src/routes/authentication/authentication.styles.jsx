@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { SignUpContainer } from "../../components/sign-up-form/sign-up-form.styles";
+import styled from 'styled-components';
+import { SignUpContainer } from '../../components/sign-up-form/sign-up-form.styles';
 
 export const AuthenticationContainer = styled.div`
   display: flex;

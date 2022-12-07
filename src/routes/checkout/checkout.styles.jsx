@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CheckoutContainer = styled.div`
   max-width: 850px;
@@ -31,7 +31,7 @@ export const Total = styled.span`
   font-size: 36px;
 
   ::before {
-    content: "Total: $";
+    content: 'Total: $';
   }
 `;
 export const EmptyMessage = styled.span`

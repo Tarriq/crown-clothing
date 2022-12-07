@@ -6,7 +6,10 @@ const fetchCategoriesStart = () =>
   createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START);
 
 const fetchCategoriesSuccess = categoriesArray =>
-  createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS, categoriesArray);
+  createAction(
+    CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_SUCCESS,
+    categoriesArray
+  );
 
 const fetchCategoriesFailed = error =>
   createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILED, error);
