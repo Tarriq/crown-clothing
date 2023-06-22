@@ -4,6 +4,7 @@ import {
   selectCartTotal,
 } from '../../store/cart/cart.selector';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import PaymentForm from '../../components/payment-form/payment-form.component';
 import {
   CheckoutContainer,
   CheckoutHeader,
@@ -43,6 +44,7 @@ const Checkout = () => {
         <EmptyMessage>No items were selected</EmptyMessage>
       )}
       <Total>{cartTotal}</Total>
+      <PaymentForm />
     </CheckoutContainer>
   );
 };
