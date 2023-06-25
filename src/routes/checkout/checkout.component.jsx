@@ -16,6 +16,7 @@ import {
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
+  let checkUserAttempt = 0;
 
   return (
     <CheckoutContainer>

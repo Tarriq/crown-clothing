@@ -1,11 +1,11 @@
 ::-webkit-scrollbar {
-  width: 20px;
+  width: 15px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: hsl(0, 0%, 20%);
   border-radius: 100vw;
-  border: 0.35em solid white;
+  border: 0.20em solid white;
 }
 
 body {
@@ -20,4 +20,8 @@ body {
     text-decoration: none;
     color: black;
   }
+}
+
+p::first-letter {
+	text-transform: uppercase;
 }

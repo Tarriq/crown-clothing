@@ -1,5 +1,7 @@
 import { useState, useEffect, Fragment } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { selectCurrentUser } from '../../store/user/user.selector';
 import { useParams } from 'react-router-dom';
 import ProductCard from '../../components/product-card/product-card.component';
 import Spinner from '../../components/spinner/spinner.component';
@@ -14,6 +16,8 @@ const Category = () => {
   const categoriesMap = useSelector(selectCategoriesMap);
   const isLoading = useSelector(selectCategoriesIsLoading);
   const [products, setProducts] = useState(categoriesMap[category]);
+  const currentUser = useSelector(selectCurrentUser);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setProducts(categoriesMap[category]);

@@ -8,21 +8,27 @@ import {
 
 export const CartDropdownContainer = styled.div`
   position: absolute;
+  box-sizing: border-box;
   width: 240px;
-  height: 340px;
+  height: ${({ open }) => (open ? '340px' : '0')};
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  border: 1px solid black;
+  padding-inline: 20px;
+  padding-block: ${({ open }) => (open ? '20px' : '0')};
+  border: ${({ open }) => (open ? '1px solid black' : 'none')};
   background-color: white;
   top: 90px;
   right: 40px;
   z-index: 5;
+  transition: 0.15s;
 
   ${BaseButton},
   ${GoogleSignInButton},
   ${InvertedButton} {
-    margin-top: auto;
+    transition: 0.1s;
+    height: ${({ open }) => (open ? '50px' : '0')};
+    border: ${({ open }) => (open ? '1px black solid' : 'none')};
+    opacity: ${({ open }) => (open ? '1' : '0')};
   }
 `;
 

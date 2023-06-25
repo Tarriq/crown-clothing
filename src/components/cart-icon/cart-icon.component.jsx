@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../store/user/user.selector';
 import {
   selectCartCount,
   selectIsCartOpen,
@@ -10,14 +11,18 @@ const CartIcon = () => {
   const dispatch = useDispatch();
 
   const cartCount = useSelector(selectCartCount);
-  const isCartOpen = useSelector(selectIsCartOpen);
+	const isCartOpen = useSelector(selectIsCartOpen);
+	const currentUser = useSelector(selectCurrentUser);
 
-  const toggleIsCartOpen = () => dispatch(setIsCartOpen(!isCartOpen));
+	const toggleIsCartOpen = () => {
+		if (currentUser) dispatch(setIsCartOpen(!isCartOpen))
+		else alert('You\'re Not Signed In !')
+	};
 
   return (
     <CartIconContainer onClick={toggleIsCartOpen}>
       <ShoppingIcon />
-      <ItemCount>{cartCount}</ItemCount>
+      <ItemCount>{currentUser ? cartCount : 0}</ItemCount>
     </CartIconContainer>
   );
 };

@@ -11,6 +11,9 @@ export const NavigationContainer = styled.div`
 
 export const LogoContainer = styled(Link)`
   padding: 20px;
+	display: flex;
+	align-items: center;
+	gap: 70px;
 `;
 
 export const NavLinks = styled.div`
@@ -30,3 +33,15 @@ export const NavLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
 `;
+
+export const DisplayName = styled.h2`
+	font-weight: normal;
+	translate: 0 8px;
+	.name {
+		font-weight: bold;
+		display: inline-block;
+		&::first-letter {
+			text-transform: uppercase;
+		}
+	}
+`

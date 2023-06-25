@@ -1,7 +1,9 @@
 require('dotenv').config();
-const stripe = require('stripe')("sk_test_51MDFeaFkq2VeAKuGhgV63XPUXM9jLkKgTaUYMavrkvnDZ8diAcYyREJHTzHwSXvzVZRM2QK3pTU7Wa6zaleUb6Ea00aUkVZMIs")/*(`${import.meta.env.VITE_STRIPE_SECRET_KEY}`)*/;
+const stripe = require('stripe')(
+  'sk_test_51MDFeaFkq2VeAKuGhgV63XPUXM9jLkKgTaUYMavrkvnDZ8diAcYyREJHTzHwSXvzVZRM2QK3pTU7Wa6zaleUb6Ea00aUkVZMIs'
+); /*(`${import.meta.env.VITE_STRIPE_SECRET_KEY}`)*/
 
-exports.handler = async event => {
+export async function handler(event) {
   try {
     const { amount } = JSON.parse(event.body);
 
@@ -23,4 +25,4 @@ exports.handler = async event => {
       body: JSON.stringify({ error }),
     };
   }
-};
+}

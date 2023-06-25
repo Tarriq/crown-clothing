@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 import {
   selectCategoriesMap,
@@ -9,10 +8,10 @@ import Spinner from '../../components/spinner/spinner.component';
 
 const CategoriesPreview = () => {
   const categoriesMap = useSelector(selectCategoriesMap);
-  const isLoading = useSelector(selectCategoriesIsLoading);
+	const isLoading = useSelector(selectCategoriesIsLoading);
 
   return (
-    <Fragment>
+    <>
       {isLoading ? (
         <Spinner />
       ) : (
@@ -23,7 +22,7 @@ const CategoriesPreview = () => {
           );
         })
       )}
-    </Fragment>
+    </>
   );
 };
 

@@ -27,7 +27,7 @@ const SignInForm = () => {
 
     try {
       dispatch(emailSignInStart(email, password))
-      resetFormFields();
+			resetFormFields();
     } catch (error) {
       switch (error.code) {
         case 'auth/wrong-password':

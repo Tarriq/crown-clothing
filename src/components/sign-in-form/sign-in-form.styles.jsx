@@ -7,3 +7,8 @@ export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+export const InvalidInputError = styled.p`
+	translate: 0 -30px;
+	color: red;
+`

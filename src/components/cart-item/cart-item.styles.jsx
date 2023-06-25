@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CartItemContainer = styled.div`
-  width: 100%;
+  width: 12rem;
   display: flex;
   height: 80px;
   margin-bottom: 15px;
